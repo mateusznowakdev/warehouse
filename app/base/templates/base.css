@@ -1,0 +1,116 @@
+body {
+  font:
+    14px system-ui,
+    "sans-serif";
+  font-variant-numeric: tabular-nums;
+  margin: 0 auto;
+  max-width: 1280px;
+  padding: 0 0.5rem;
+  user-select: none;
+}
+
+button,
+input[type="submit"] {
+  appearance: none;
+  background-color: #eee;
+  border: 0;
+  cursor: pointer;
+  font:
+    14px system-ui,
+    "sans-serif";
+  padding: 0.5rem 0.75rem;
+}
+
+button:hover,
+input[type="submit"]:hover {
+  background-color: #ddd;
+}
+
+html {
+  scroll-padding-top: 8rem;
+}
+
+input {
+  appearance: none;
+  background-color: white;
+  border: 1px solid lightgray;
+  font:
+    14px system-ui,
+    "sans-serif";
+  padding: 0.5rem;
+}
+
+input[type="checkbox"] {
+  appearance: revert;
+  margin: 0 0.5rem 0 0;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table > tbody > tr:hover {
+  background-color: #eee;
+}
+
+table td,
+table th {
+  border: 1px solid lightgray;
+  padding: 0.25rem 0.5rem;
+}
+
+table input {
+  appearance: none;
+  border: 0;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.hidden {
+  display: none;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.padding-bottom {
+  padding-bottom: 1rem;
+}
+
+/* Going backwards because the history table has one extra column at the beginning */
+.product-detail-table td:nth-last-child(7) {
+  width: 150px;
+}
+
+.product-detail-table td:nth-last-child(5) {
+  text-align: right;
+  width: 75px;
+}
+
+.product-detail-table td:nth-last-child(4) {
+  width: 50px;
+}
+
+.product-detail-table td:nth-last-child(3) {
+  text-align: right;
+  width: 100px;
+}
+
+.product-detail-table td:nth-last-child(5) input,
+.product-detail-table td:nth-last-child(3) input {
+  text-align: right;
+}
+
+.product-list-table td:nth-child(4),
+.product-list-table td:nth-child(6),
+.product-list-table td:nth-child(8),
+.product-list-table td:nth-child(11) {
+  text-align: right;
+}
+
+/* Show action buttons only for a selected row */
+.product-list-table tr:not(:hover) button {
+  visibility: hidden;
+}

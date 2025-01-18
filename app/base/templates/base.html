@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="{{ ENV_LANG }}">
+  <head>
+    <title>{% block title %}{% endblock %}</title>
+    <style>
+      {% include "base.css" %}
+      {% block custom_style %}{% endblock %}
+    </style>
+    <link rel="shortcut icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAdnJLH8AAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAJhJREFUWMPtl0EKAzEIRV/KHMwLeM8cUMjydzOhMLTYgZIsqpDFB0leRFGRJCA9dy27z8ymX/64u/8cAFDvXe0UnDDLrLUGwIPNVgAFcGRZOqvjWz3tk9/bCLj7lt+7O8fq+r9GqJKwAAqgAApgfzfMutXWmfDaJTN91w+gpuIC+E+AMcZLmNmW7RhQRAhJ6r0v344jQpL0BFPcUVdwsYEeAAAAAElFTkSuQmCC" />
+  </head>
+  <body>
+    {% block content %}{% endblock %}
+    <script type="text/javascript">
+      {% include "base.js" %}
+      {% block custom_script %}{% endblock %}
+    </script>
+  </body>
+</html>

@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block title %}
+  {{ _("Database") }}
+{% endblock %}
+
+{% block content %}
+  <header>
+    <nav class="padding-bottom">
+      <div>
+        <button id="addButton">➕ {{ _("Add") }}</button>
+      </div>
+      <div>
+        <input id="search" placeholder="{{ _("Search") }}" />
+      </div>
+      <div>
+        <button id="printButton">🖨️ {{ _("Print") }}</button>
+        <button id="exportButton">💾 {{ _("Export data") }}</button>
+      </div>
+    </nav>
+    <div class="valign">
+      <input id="showOutOfStock" type="checkbox" />
+      <label for="showOutOfStock">{{ _("Show out-of-stock entries") }}</label>
+    </div>
+  </header>
+  <main>
+    <table class="product-list-table">
+      <thead>
+        <tr>
+          <th>{{ _("ID") }}</th>
+          <th>{{ _("Index") }}</th>
+          <th>{{ _("Description") }}</th>
+          <th colspan="2">{{ _("Qty") }}</th>
+          <th colspan="2">{{ _("Price") }}</th>
+          <th colspan="2">{{ _("Total") }}</th>
+          <th>{{ _("Notes") }}</th>
+          <th>&nbsp;</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for product in products %}
+        <tr
+          data-json="{{ serializer.dumps(product) }}"
+          {% if product.quantity == 0 %}class="hidden"{% endif %}
+        >
+          <td><a id="{{ product.id }}">{{ product.id }}</a></td>
+          <td>{{ product.index }}</td>
+          <td>{{ product.description }}</td>
+          <td class="fmt-decimal">{{ product.quantity }}</td>
+          <td>{{ product.unit }}</td>
+          <td class="fmt-decimal">{{ product.price }}</td>
+          <td>{{ _("USD") }}</td>
+          <td class="fmt-decimal">{{ product.total }}</td>
+          <td>{{ _("USD") }}</td>
+          <td>{{ product.notes }}</td>
+          <td class="nowrap">
+            <button onclick="e('{{ product.id }}')">✏️</button>
+            <button onclick="s('{{ product.index }}')">🌐</button>
+            <button onclick="w('{{ product.index }}')">🚚</button>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <p>
+      <strong>{{ products_count }}</strong> {{ _("entries") }},
+      <strong class="fmt-decimal">{{ products_total }}</strong> {{ _("USD") }}
+    </p>
+    <p>{{ _("As of") }} <span class="fmt-date">{{ now }}</span></p>
+  </main>
+{% endblock %}
+
+{% block custom_style %}
+  {% include "product_list.css" %}
+{% endblock %}
+
+{% block custom_script %}
+  {% include "product_list.js" %}
+{% endblock %}

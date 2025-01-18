@@ -1,0 +1,9 @@
+.idea
+
+.venv
+*.db
+*.pyc
+
+node_modules
+
+.env

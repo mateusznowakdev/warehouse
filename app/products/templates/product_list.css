@@ -1,0 +1,46 @@
+header {
+  background-color: white;
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+}
+
+nav {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+nav > :nth-child(3n + 2) > input {
+  width: 100%;
+}
+
+nav > :nth-child(3n + 3) {
+  text-align: right;
+}
+
+nav input {
+  text-align: center;
+}
+
+/* Recent created or edited entry */
+.last {
+  background-color: #efe;
+  color: green;
+}
+
+.valign {
+  display: flex;
+  align-items: center;
+}
+
+@media print {
+  body {
+    font-size: 10px;
+  }
+
+  button,
+  header,
+  input {
+    display: none;
+  }
+}

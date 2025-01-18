@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+
+{% block title %}
+  {% if product %}
+    {{ _("Edit") }} "{{ product.index }}"
+  {% else %}
+    {{ _("Add new entry") }}
+  {% endif %}
+  - {{ _("Database") }}
+{% endblock %}
+
+{% block content %}
+  <header>
+    <h3>{% if product %}{{ _("Edit") }} "{{ product.index }}"{% else %}{{ _("Add new entry") }}{% endif %}</h3>
+  </header>
+  <main>
+    <form method="POST">
+      {{ form.hidden_tag() }}
+      <table class="product-detail-table padding-bottom">
+        <thead>
+          <tr>
+            <th>{{ _("Index") }}</th>
+            <th>{{ _("Description") }}</th>
+            <th colspan="2">{{ _("Qty") }}</th>
+            <th colspan="2">{{ _("Price") }}</th>
+            <th>{{ _("Notes") }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{ form.index() }}</td>
+            <td>{{ form.description() }}</td>
+            <td>{{ form.quantity(step=0.01) }}</td>
+            <td>{{ form.unit() }}</td>
+            <td>{{ form.price(step=0.01) }}</td>
+            <td>{{ _("USD") }}</td>
+            <td>{{ form.notes() }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        <input type="submit" value="✔️ {{ _("Save") }}"/>
+        <button id="cancelButton" type="button">❌ {{ _("Cancel") }}</button>
+      </p>
+    </form>
+    {% if related %}
+      <div class="hidden">
+        <h3>{{ _("Related entries") }}</h3>
+        <p>{{ _("If there is a matching description and price, you can edit existing entry to keep consistent history.") }}</p>
+        <table class="product-list-table">
+          <thead>
+          <tr>
+            <th>{{ _("ID") }}</th>
+            <th>{{ _("Index") }}</th>
+            <th>{{ _("Description") }}</th>
+            <th colspan="2">{{ _("Qty") }}</th>
+            <th colspan="2">{{ _("Price") }}</th>
+            <th colspan="2">{{ _("Total") }}</th>
+            <th>{{ _("Notes") }}</th>
+            <th>&nbsp;</th>
+          </tr>
+          </thead>
+          <tbody>
+            {% for product in related %}
+              <tr data-json="{{ serializer.dumps(product) }}" class="hidden">
+                <td>{{ product.id }}</td>
+                <td>{{ product.index }}</td>
+                <td>{{ product.description }}</td>
+                <td class="fmt-decimal">{{ product.quantity }}</td>
+                <td>{{ product.unit }}</td>
+                <td class="fmt-decimal">{{ product.price }}</td>
+                <td>{{ _("USD") }}</td>
+                <td class="fmt-decimal">{{ product.total }}</td>
+                <td>{{ _("USD") }}</td>
+                <td>{{ product.notes }}</td>
+                <td class="nowrap">
+                  <button onclick="e('{{ product.id }}')">✏️</button>
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      {% endif %}
+      {% if history %}
+        <h3>{{ _("History") }}</h3>
+        <table class="product-detail-table">
+          <thead>
+            <tr>
+              <th>{{ _("Modification date") }}</th>
+              <th>{{ _("Index") }}</th>
+              <th>{{ _("Description") }}</th>
+              <th colspan="2">{{ _("Qty") }}</th>
+              <th colspan="2">{{ _("Price") }}</th>
+              <th>{{ _("Notes") }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for entry in history %}
+              <tr>
+                <td class="fmt-datetime nowrap">{{ entry.date }}</td>
+                <td>{{ entry.index }}</td>
+                <td>{{ entry.description }}</td>
+                <td class="fmt-decimal">{{ entry.quantity }}</td>
+                <td>{{ entry.unit }}</td>
+                <td class="fmt-decimal">{{ entry.price }}</td>
+                <td>{{ _("USD") }}</td>
+                <td>{{ entry.notes }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    {% endif %}
+  </main>
+{% endblock %}
+
+{% block custom_style %}
+  {% include "product_edit.css" %}
+{% endblock %}
+
+{% block custom_script %}
+  {% include "product_edit.js" %}
+{% endblock %}

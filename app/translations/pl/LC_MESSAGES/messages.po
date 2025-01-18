@@ -1,0 +1,148 @@
+# Polish translations for PROJECT.
+# Copyright (C) 2025 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2025-01-18 20:58+0100\n"
+"PO-Revision-Date: 2025-01-18 20:59+0100\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: pl\n"
+"Language-Team: pl <LL@li.org>\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && "
+"(n%100<10 || n%100>=20) ? 1 : 2);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.16.0\n"
+
+#: app/products/forms.py:14
+msgid "pcs"
+msgstr "szt."
+
+#: app/products/templates/product_edit.html:5
+#: app/products/templates/product_edit.html:14
+msgid "Edit"
+msgstr "Edytuj"
+
+#: app/products/templates/product_edit.html:7
+#: app/products/templates/product_edit.html:14
+msgid "Add new entry"
+msgstr "Dodaj nowy wpis"
+
+#: app/products/templates/product_edit.html:9
+#: app/products/templates/product_list.html:4
+msgid "Database"
+msgstr "Baza"
+
+#: app/products/templates/product_edit.html:22
+#: app/products/templates/product_edit.html:54
+#: app/products/templates/product_edit.html:90
+#: app/products/templates/product_list.html:31
+msgid "Index"
+msgstr "Indeks"
+
+#: app/products/templates/product_edit.html:23
+#: app/products/templates/product_edit.html:55
+#: app/products/templates/product_edit.html:91
+#: app/products/templates/product_list.html:32
+msgid "Description"
+msgstr "Opis"
+
+#: app/products/templates/product_edit.html:24
+#: app/products/templates/product_edit.html:56
+#: app/products/templates/product_edit.html:92
+#: app/products/templates/product_list.html:33
+msgid "Qty"
+msgstr "Ilość"
+
+#: app/products/templates/product_edit.html:25
+#: app/products/templates/product_edit.html:57
+#: app/products/templates/product_edit.html:93
+#: app/products/templates/product_list.html:34
+msgid "Price"
+msgstr "Cena"
+
+#: app/products/templates/product_edit.html:26
+#: app/products/templates/product_edit.html:59
+#: app/products/templates/product_edit.html:94
+#: app/products/templates/product_list.html:36
+msgid "Notes"
+msgstr "Notatki"
+
+#: app/products/templates/product_edit.html:36
+#: app/products/templates/product_edit.html:72
+#: app/products/templates/product_edit.html:74
+#: app/products/templates/product_edit.html:106
+#: app/products/templates/product_list.html:52
+#: app/products/templates/product_list.html:54
+#: app/products/templates/product_list.html:67
+msgid "USD"
+msgstr "zł"
+
+#: app/products/templates/product_edit.html:42
+msgid "Save"
+msgstr "Zapisz"
+
+#: app/products/templates/product_edit.html:43
+msgid "Cancel"
+msgstr "Anuluj"
+
+#: app/products/templates/product_edit.html:48
+msgid "Related entries"
+msgstr "Podobne wpisy"
+
+#: app/products/templates/product_edit.html:49
+msgid ""
+"If there is a matching description and price, you can edit existing entry"
+" to keep consistent history."
+msgstr "Jeżeli opis i cena zgadzają się, można edytować istniejący wpis, aby zachować spójną historię."
+
+#: app/products/templates/product_edit.html:53
+#: app/products/templates/product_list.html:30
+msgid "ID"
+msgstr "Lp."
+
+#: app/products/templates/product_edit.html:58
+#: app/products/templates/product_list.html:35
+msgid "Total"
+msgstr "Razem"
+
+#: app/products/templates/product_edit.html:85
+msgid "History"
+msgstr "Historia"
+
+#: app/products/templates/product_edit.html:89
+msgid "Modification date"
+msgstr "Data modyfikacji"
+
+#: app/products/templates/product_list.html:11
+msgid "Add"
+msgstr "Dodaj"
+
+#: app/products/templates/product_list.html:14
+msgid "Search"
+msgstr "Szukaj"
+
+#: app/products/templates/product_list.html:17
+msgid "Print"
+msgstr "Drukuj"
+
+#: app/products/templates/product_list.html:18
+msgid "Export data"
+msgstr "Pobierz dane"
+
+#: app/products/templates/product_list.html:23
+msgid "Show out-of-stock entries"
+msgstr "Pokaż wpisy z pustym stanem"
+
+#: app/products/templates/product_list.html:66
+msgid "entries"
+msgstr "wpisów"
+
+#: app/products/templates/product_list.html:69
+msgid "As of"
+msgstr "Stan z dnia"
